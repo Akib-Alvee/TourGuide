@@ -13,7 +13,7 @@ from users.models import User
 # Create your views here.
 
 def home(request):
-    return  render(request, 'Tour/home.html')
+    return  render(request, 'tour/home.html')
 
 @login_required
 def tourindex(request):
