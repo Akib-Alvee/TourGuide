@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block head_title %}Delete post{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h2 class=" my-5">Delete post</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete it?</p>
+        <button type="submit" class="btn btn-danger">Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container" style="padding-top: 30rem;">
+
+</div>
+<!-- footer section  -->
+
+<section class="footer" style="padding-top: 10rem;">
+
+  <div class="box-container">
+
+      <div class="box" style="padding-right: 5rem;">
+          <h3>about us</h3>
+          <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+      </div>
+      
+      <div class="box" style="padding-left:5rem;">
+          <h3>We’ve got you covered</h3>
+       
+          <a href="/">home</a>
+          <a href="/tourindex">book</a>
+          <a href="/">services</a>
+          <a href="#">review</a>
+          <a href="/contact">contact</a>
+      </div>
+      <div class="box" style="padding-left:8rem;">
+          <h3>follow us</h3>
+          <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+          <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+          <a href="https://github.com/fahim-01">github</a>
+          <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+
+      </div>
+      <div class="container">
+      <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+        <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+        <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+      </div>
+    </div>
+</section> 
+
+{% endblock content %}

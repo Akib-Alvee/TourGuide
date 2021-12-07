@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}Log In{% endblock %}
+
+{% block content %}
+<main role="main" class="containers">
+  <div class="row">
+      <div class="col-md-8" style="align-items: center; padding-left: 50rem; padding-top: 10rem;">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <!-- <h2 class=" my-5" style="font-size: large;  color: #4c645b; padding-left: 10rem;">Log in</h2> -->
+      <h1 class="heading">
+        <span>L</span>
+        <span>o</span>
+        <span>g</span>
+        <span>i</span>
+        <span>n</span>
+    </h1>
+      <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group" style="font-size: large;  color: #4c645b;">
+          {{ form.email.label_tag }}
+          <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email"
+            name="email" value='{{ form.email.value|default:"" }}' style="text-transform: lowercase; width: 350px; height: 40px;" >
+          {% if form.email.errors %}
+          <div class="invalid-feedback">{{ form.email.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group" style="font-size: large;  color: #4c645b;">
+          {{ form.password.label_tag }}
+          <input type="password" class="form-control {% if form.password.errors %}is-invalid{% endif %}"
+            id="id_password" name="password" value='{{ form.password.value|default:"" }}' style="text-transform: lowercase;width: 350px;height: 40px;">
+          {% if form.password.errors %}
+          <div class="invalid-feedback">{{ form.password.errors }}</div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="justify-content: center;">Login</button>
+      </form>
+      <br>
+      <!-- <p>Forgot your password? <a href="{% url 'users:password_reset' %}">Click here</a></p> -->
+      <h4>don't have and account? <a href="{% url 'users:signup' %}">signup now</a></h4>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="col-md-4" >
+  <div class="content-section" style="padding-top: 15rem; ">
+      <div class="image" >
+        <img src='{% static "/media/images/login.svg"%}' alt="" style="height: 350px; width:100%; padding-right: 15rem;">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}

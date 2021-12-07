@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block head_title %}{% if update %}Update post{% else %}Create a post{% endif %}{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h1 class=" my-5" style="color: #4c645b;"><b>{% if update %}Update post{% else %}Please Share your Experience{% endif %}</b></h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group" style="font-size: large;">
+          {{ form.title.label_tag }}
+          <input type="text" class="form-control {% if form.title.errors %}is-invalid{% endif %}" id="id_title"
+            name="title" value='{{ form.title.value|default:"" }}'>
+          {% if form.title.errors %}
+          <div class="invalid-feedback">{{ form.title.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group" style="font-size: large;">
+          {{ form.content.label_tag }}
+          <textarea type="text" class="form-control {% if form.content.errors %}is-invalid{% endif %}" id="id_content"
+            name="content" cols="40" rows="10">{{ form.content.value|default:"" }}</textarea>
+          {% if form.content.errors %}
+          <div class="invalid-feedback">{{ form.content.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group" style="font-size: large;">
+          {{ form.image.label_tag }}<br>
+          <input type="file" class="{% if form.image.errors %}is-invalid{% endif %}" id="id_image" name="image"
+            accept="image/*">
+          {% if form.image.errors %}
+          <div class="invalid-feedback">{{ form.image.errors }}</div>
+          {% endif %}
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">
+          {% if update %}Update the post{% else %}Create a post{% endif %}
+        </button>
+      </form>
+
+    </div>
+  </div>
+</div>
+<!-- footer section  -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box" style="padding-right: 5rem;">
+          <h3>about us</h3>
+          <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+      </div>
+      
+      <div class="box" style="padding-left:5rem;">
+          <h3>We’ve got you covered</h3>
+       
+          <a href="/">home</a>
+          <a href="/tourindex">book</a>
+          <a href="/">services</a>
+          <a href="#">review</a>
+          <a href="/contact">contact</a>
+      </div>
+      <div class="box" style="padding-left:8rem;">
+          <h3>follow us</h3>
+          <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+          <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+          <a href="https://github.com/fahim-01">github</a>
+          <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+
+      </div>
+      <div class="container">
+      <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+        <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+        <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+      </div>
+    </div>
+</section> 
+
+{% endblock content %}

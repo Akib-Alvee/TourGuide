@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourGuide </title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/service.css' %}" />
+    <!-- <script src="https://kit.fontawesome.com/64d58efce2.js"  crossorigin="anonymous"></script> -->
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"><span>T</span>ravel</a>
+
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="#packages">packages</a>
+        <a href="#services">services</a>
+        <a href="/contact">contact</a>
+        {% if request.user.is_authenticated %}
+        <a href="/tourindex">book</a>
+        <a href="{% url 'blog:home'%}">Review</a> 
+       <a href="{% url 'users:profile' request.user.username %}"
+       class="nav-item nav-link {% if request.user.username in request.path %}active{% endif %}">
+       Profile
+    </a>
+    <a href="{% url 'users:logout' %}">Log out</a>
+        {% else %}
+        <a href="users/login">Log in</a>
+        <a href="users/signup">Sign up</a>
+        {% endif %}
+      
+          
+    </nav>
+    <div class="icons">
+        <i class="fas fa-user" id="login-btn"></i>
+      
+    </div>
+
+   
+
+</header>
+
+<!-- header section ends -->
+
+<!-- login form container  -->
+
+<div class="login-form-container">
+
+    <i class="fas fa-times" id="form-close"></i>
+
+    <form action="">
+        
+         <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email">
+        <input type="password" class="box" placeholder="enter your password">
+        <input type="submit" value="login now" class="btn">
+        <input type="checkbox" id="remember">
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="users/signup">register now</a></p>
+     </form> 
+
+</div>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>adventure is worthwhile</h3>
+        <p>dicover new places with us, adventure awaits</p>
+        <a href="#" class="btn">discover more</a>
+    </div>
+
+    <div class="controls">
+        <span class="vid-btn active" data-src="images/vid-1.mp4"></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-5.mp4"%}'></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-3.mp4"%}'></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-4.mp4"%}'></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-1.mp4"%}'></span>
+    </div>
+
+    <div class="video-container">
+      
+        <video src= '{% static "/media/images/vid-2.mp4"%}' id="video-slider" loop autoplay muted></video>
+    </div>
+
+</section>
+
+
+<!-- home section ends -->
+
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+    <h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <span>p</span>
+        <span>a</span>
+        <span>c</span>
+        <span>k</span>
+        <span>a</span>
+        <span>g</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+
+    
+
+<div class="box-container">
+
+    <div class="box">
+        <img src='{% static "/media/images/Nafakhum.jpg"%}' alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Hill Track </h3>
+            <p>The Chittagong Hill Tracts, often shortened to simply the Hill Tracts and abbreviated to CHT.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> ৳70% <span>৳90%</span> </div>
+            {% if request.user.is_authenticated %}
+            <a href="/tourindex" class="btn">book now</a>
+            {% else %}
+            <a href="users/login" class="btn">book now</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="box">
+        <img src='{% static "/media/images/Sreemangal.jpg"%}' alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Popular Destination </h3>
+            <p>Bangladesh, to the east of India on the Bay of Bengal, 
+                is a South Asian country marked by lush greenery and many waterways.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> ৳70% <span>৳90%</span> </div>
+               {% if request.user.is_authenticated %}
+            <a href="/tourindex" class="btn">book now</a>
+            {% else %}
+            <a href="users/login" class="btn">book now</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="box">
+        <img src='{% static "/media/images/Italy.jpg"%}' alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Away </h3>
+            <p>Mother Earth along with mankind have co-created some of the most spectacular places on this planet. </p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> ৳70% <span>৳90%</span> </div>
+            {% if request.user.is_authenticated %}
+            <a href="/tourindex" class="btn">book now</a>
+            {% else %}
+            <a href="users/login" class="btn">book now</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+</section> 
+
+<!-- packages section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- services section starts  -->
+
+ <section class="services" id="services">
+
+    <h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <span>s</span>
+        <span>e</span>
+        <span>r</span>
+        <span>v</span>
+        <span>i</span>
+        <span>c</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-hotel"></i>
+            <h3>affordable hotels</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-utensils"></i>
+            <h3>food and drinks</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-bullhorn"></i>
+            <h3>safty guide</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-globe-asia"></i>
+            <h3>around the world</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-plane"></i>
+            <h3>fastest travel</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-hiking"></i>
+            <h3>adventures</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+
+    </div>
+
+</section> 
+
+<!-- services section ends -->
+
+<!-- gallery section starts  -->
+
+ <section class="gallery" id="gallery" >
+
+    <h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <span>g</span>
+        <span>a</span>
+        <span>l</span>
+        <span>l</span>
+        <span>e</span>
+        <span>r</span>
+        <span>y</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src='{% static "/media/images/g-1.jpg"%}' alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-2.jpg"%}'  alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-3.jpg"%}'    alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-4.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-5.jpg"%}'  alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-6.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-7.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-8.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        
+
+    </div>
+
+</section> 
+
+<!-- gallery section ends -->
+
+
+
+
+
+<!-- footer section  -->
+<section class="footer">
+
+    <div class="box-container">
+  
+        <div class="box" style="padding-right: 5rem;">
+            <h3>about us</h3>
+            <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+        </div>
+        
+        <div class="box" style="padding-left:5rem;">
+            <h3>We’ve got you covered</h3>
+         
+            <a href="/">home</a>
+            <a href="/tourindex">book</a>
+            <a href="/">services</a>
+            <a href="#">review</a>
+            <a href="/contact">contact</a>
+        </div>
+        <div class="box" style="padding-left:8rem;">
+            <h3>follow us</h3>
+            <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+            <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+            <a href="https://github.com/fahim-01">github</a>
+            <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+  
+        </div>
+        <div class="container">
+        <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+          <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+          <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+        </div>
+      </div>
+  </section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<!-- <script src="js/script.js"></script> -->
+<script src="{% static 'js/home.js' %}"></script>
+
+</body>
+</html>
+
+

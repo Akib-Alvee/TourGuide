@@ -1,0 +1,126 @@
+{% extends 'Tour/basetour.html' %}
+{% block title %} Booking US {% endblock %} 
+{% block body %} 
+<div  style="margin-top: 100px;">
+    <section class="book" id="book">
+        {% load static %}
+        <h1 class="heading" style=" margin-bottom: 1rem;">
+            <span>P</span>
+            <span>l</span>
+            
+            <span>a</span>
+            <span>n</span>
+            <span class="space"></span>
+            <span>Y</span>
+            <span>o</span>
+            <span>u</span>
+            <span>r</span>
+            <span class="space"></span>
+            <span>T</span>
+            <span>r</span>
+            <span>i</span>
+            <span>p</span>
+
+        </h1>
+        <h1 class="heading">
+            <span>b</span>
+            <span>o</span>
+            <span>o</span>
+            <span>k</span>
+            <span class="space"></span>
+            <span>n</span>
+            <span>o</span>
+            <span>w</span>
+        </h1>
+    
+        <div class="row">
+    
+            <div class="image">
+               
+                <img src='{% static "/media/images/book-img.svg"%}' alt="">
+            </div>
+    
+            <form method="post" action="/destinations/{{Destination}}/">
+                <div class="inputBox" style="text-align: center;">
+                    <h3><b>{{user.username}}</b></h3>
+                    <input type="hidden" value={{user.email}} id="user_id" name="user_id">
+                    
+                </div>
+                <div class="inputBox">
+                    <h3>Departure</h3>
+                    <input type="text" id="departure" name="departure" placeholder="Place Name" required>
+                </div>
+                <div class="inputBox">
+                    <h3>Number Of Guests</h3>
+                    <input type="number" id="number_of_guests" name="number_of_guests" placeholder="Number of Guests" required>
+                </div>
+                <div class="inputBox">
+                    <h3>Email</h3>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="inputBox">
+                    <h3>Phone</h3>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone number" required>
+    
+                </div>
+                
+                <div class="inputBox">
+                    <h3>Trip</h3>
+                    <input type="date"  id="trip_date" name="trip_date" required>
+                </div>
+                <div class="inputBox">
+                    <h3>Your Expectations</h3>
+                    <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+                </div>
+                {% csrf_token %}
+                <input type="submit" class="btn" value="book now"> 
+            </form>
+    
+        </div>
+    
+    </section>
+    </div>
+    
+    <section class="footer">
+
+        <div class="box-container">
+      
+            <div class="box" style="padding-right: 5rem;">
+                <h3>about us</h3>
+                <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+            </div>
+            
+            <div class="box" style="padding-left:5rem;">
+                <h3>We’ve got you covered</h3>
+             
+                <a href="/">home</a>
+                <a href="/tourindex">book</a>
+                <a href="/">services</a>
+                <a href="#">review</a>
+                <a href="/contact">contact</a>
+            </div>
+            <div class="box" style="padding-left:8rem;">
+                <h3>follow us</h3>
+                <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+                <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+                <a href="https://github.com/fahim-01">github</a>
+                <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+      
+            </div>
+            <div class="container">
+            <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+              <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+              <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+            </div>
+          </div>
+      </section> 
+{% endblock %} 
+{% block js %}
+<script>
+{% if thank %}
+alert('Thanks for Booking us. We will get Contact you as soon as possible!');
+
+document.location = "/";
+{% endif %}
+</script>
+{% endblock %} 

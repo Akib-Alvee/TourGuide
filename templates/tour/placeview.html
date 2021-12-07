@@ -1,0 +1,81 @@
+{% extends 'Tour/basetour.html' %}
+{% block title %} Booking US {% endblock %} 
+{% block body %} 
+<main>
+
+    <div class="container">
+        
+        <div class="cover">
+            <img  src="/media/{{placeview.image}}" width="520px" height="420px">
+        </div>
+  
+        <div class="content">
+            <!-- <div class="nav">
+                <span class="logo">ROLIX</span>
+                <span><i class='fab fa-sistrix' style='font-size:24px'></i></span>
+            </div> -->
+            <!-- <div class="content-body"> -->
+                
+                <div class="black-label">
+                 
+                    <span class="title"><b>{{placeview.Destination_name}}</b></span>
+                    <p>{{placeview.desc}}
+                        </p>
+                            <div class="prixs" style="padding-top: 1rem;  
+                            display: flex;
+                            justify-content: space-between;
+                            border-left: 4px solid #4c645b;" >
+                               <span style="padding-bottom: 1rem; padding-left: 1rem;">Per Person: <b>BDT.{{placeview.price}}</b></span>
+                               </div>
+                               <div class="prix">
+                               <span class="crt"><a href="/destinations/{{placeview.Destination_name}}"><button type="button" class="btn btn-success my-2">Booking Us</button></a>
+                               </span>
+                           </div>
+                           </div>
+
+               
+            <!-- </div> -->
+            
+        </div>
+    </div>
+</main>
+
+<section class="footer">
+
+    <div class="box-container">
+  
+        <div class="box" style="padding-right: 5rem;">
+            <h3>about us</h3>
+            <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+        </div>
+        
+        <div class="box" style="padding-left:5rem;">
+            <h3>We’ve got you covered</h3>
+         
+            <a href="/">home</a>
+            <a href="/tourindex">book</a>
+            <a href="/">services</a>
+            <a href="#">review</a>
+            <a href="/contact">contact</a>
+        </div>
+        <div class="box" style="padding-left:8rem;">
+            <h3>follow us</h3>
+            <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+            <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+            <a href="https://github.com/fahim-01">github</a>
+            <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+  
+        </div>
+        <div class="container">
+        <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+          <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+          <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+        </div>
+      </div>
+  </section> 
+
+
+
+
+
+    {% endblock %} 

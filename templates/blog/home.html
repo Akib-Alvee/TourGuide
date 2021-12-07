@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main role="main" class="containers">
+  <div class="row">
+      <div class="col-md-8">
+<div class="container mt-5">
+
+  <div class="row">
+    {% for post in object_list %}
+    <div class="card col-lg-6 offset-lg-3 mb-3">
+      {% if post.image %}
+      <img class="card-img-top mt-3" src="{{ post.image.url }}" alt="{{ post.title }}">
+      {% endif %}
+      <div class="card-body">
+        <a href="{% url 'blog:post' post.id post.slug %}">
+          <h2 class="card-title my-3">{{ post.title }} </h2>
+        </a>
+        <div class="text-muted mb-3">
+          <div>
+            <span>created: {{ post.created_on|date:"N j Y" }} |</span>
+            <span>updated: {{ post.updated_on|timesince }} ago |</span>
+            <span>author: {{ post.author }}</span>
+          </div>
+          <div>
+            {% for tag in post.tags.all %}
+            <span class="badge badge-dark">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <p class="card-text">{{ post.content|truncatewords:20 }}</p>
+        <a class='btn btn-primary' href="{% url 'blog:post' post.id post.slug %}">Read more ...</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  <div class="row">
+    <nav class="col-lg-6 offset-lg-3 mt-4 d-flex justify-content-center">
+      <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Previous</a>
+        </li>
+        {% endif %}
+  
+        {% for i in page_obj.paginator.page_range %}
+        <li class=" page-item {% if page_obj.number == i %}active{% endif %}">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Next</a>
+        </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+  </div>
+  <!-- /Pagination -->
+
+</div>
+</div>
+
+<div class="col-md-4" >
+  <div class="content-section" style="padding-top: 3rem; ">
+    <a href="{% url 'users:profile' request.user.username %}"
+class="nav-item nav-link {% if request.user.username in request.path %}active{% endif %}">
+<h1 style="color:#4c645b;"><b>{{user.username}}</b></h1>
+</a>
+      <h2>Please Share Your Experience</h2>
+      <p class='text-muted'>You can put any information here you'd like.
+          <div class="cbtn" style="align-items: center;">
+            <a href="{% url 'blog:post_create' %}" class="btn">Create A Post</a>
+            </div>
+      <ul class="list-group">
+          <!-- <li class="list-group-item list-group-item-light">Latest Post</a></li>
+          <li class="list-group-item list-group-item-light">Announcements</li>
+          <li class="list-group-item list-group-item-light">Calendars</li>
+          <li class="list-group-item list-group-item-light">etc</li> -->
+      </ul>
+      </p>
+      <div class="image" >
+               
+        <img src='{% static "/media/images/blog.svg"%}' alt="" style="height: 350px; width:100%; padding-right: 15rem;">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<!-- footer section  -->
+
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box" style="padding-right: 5rem;">
+          <h3>about us</h3>
+          <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+      </div>
+      
+      <div class="box" style="padding-left:5rem;">
+          <h3>We’ve got you covered</h3>
+       
+          <a href="/">home</a>
+          <a href="/tourindex">book</a>
+          <a href="/">services</a>
+          <a href="#">review</a>
+          <a href="/contact">contact</a>
+      </div>
+      <div class="box" style="padding-left:8rem;">
+          <h3>follow us</h3>
+          <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+          <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+          <a href="https://github.com/fahim-01">github</a>
+          <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+
+      </div>
+      <div class="container">
+      <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+        <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+        <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+      </div>
+    </div>
+</section> 
+
+
+{% endblock %}

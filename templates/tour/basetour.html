@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/service.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/booking.css' %}" /> 
+    <link rel="stylesheet" href="{% static 'css/placeview.css' %}" /> 
+    <title>{% block title%} {% endblock %}</title>
+  </head>
+
+  
+  <body>
+  
+  <header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"><span>T</span>ravel</a>
+
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="/tourindex">book</a>
+        <a href="/">contact</a>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'blog:home' %}">review</a>
+        <a href="{% url 'users:profile' request.user.username %}"
+        class="nav-item nav-link {% if request.user.username in request.path %}active{% endif %}">
+        Profile
+     </a>
+     <a href="{% url 'users:logout' %}" class="nav-item nav-link">Log out</a>
+     {% else %}
+     <a href="{% url 'users:login' %}"
+                class="nav-item nav-link {% if request.path == '/users/login/' %}active{% endif %}">Log in</a>
+              <a href="{% url 'users:signup' %}"
+                class="nav-item nav-link {% if request.path == '/users/signup/' %}active{% endif %}">Sign up</a>
+                {% endif %}
+        
+    </nav>
+
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endfor %}
+  
+    <div class="icons">
+        <i class="fas fa-user" id="login-btn"></i>
+    </div>
+
+    
+
+</header> 
+
+
+
+
+{% block body %} {% endblock %}
+    
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="{% static 'js/home.js' %}"></script>
+{% block js %} {% endblock %}
+</body>
+</html>

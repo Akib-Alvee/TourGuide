@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}Sign Up{% endblock %}
+
+{% block content %}
+<main role="main" class="containers" style="align-items: center; padding-left: 10rem; padding-top: 1rem;">
+  <div class="row">
+      <div class="col-md-8" style="align-items: center; padding-left: 20rem; padding-top: 1rem;">
+<div class="container" >
+  <div class="row" style="align-items: center; padding-left: 20rem; padding-top: 5rem;">
+    <div class="col-12" >
+      <!-- <h2 class="my-5" style="font-size: large; text-align: center; color: #4c645b;">Sign up</h2> -->
+      <h1 class="heading">
+        <span>S</span>
+        <span>i</span>
+        <span>g</span>
+        <span>n</span>
+        <span>u</span>
+        <span>p</span>
+    </h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group"style="font-size: large; color: #4c645b;">
+          {{ form.username.label_tag }}
+          <input type="text" class="form-control {% if form.username.errors %}is-invalid{% endif %}" id="id_username"
+            name="username" value='{{ form.username.value|default:"" }}' style="text-transform: lowercase; width: 350px; height: 40px;">
+          <small class="text-muted">{{ form.username.help_text }}</small>
+          {% if form.username.errors %}
+          <div class="invalid-feedback">{{ form.username.errors }}</div>
+          {% endif %}
+        </div>
+        <div class="form-group"style="font-size: large; color: #4c645b;">
+            {{ form.email.label_tag }}
+            <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email"
+              name="email" value='{{ form.email.value|default:"" }}' style="text-transform: lowercase; width: 350px; height: 40px;">
+            {% if form.email.errors %}
+            <div class="invalid-feedback">{{ form.email.errors }}</div>
+            {% endif %}
+          </div>
+
+        <div class="form-group"style="font-size: large; color: #4c645b;">
+          {{ form.password1.label_tag }}
+          <input type="password" class="form-control {% if form.password1.errors %}is-invalid{% endif %}"
+            id="id_password1" name="password1" value='{{ form.password1.value|default:"" }}' style="text-transform: lowercase; width: 350px; height: 40px;">
+          <small class="text-muted">{{ form.password1.help_text }}</small>
+          {% if form.password1.errors %}
+          <div class="invalid-feedback">{{ form.password1.errors }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group"style="font-size: large; color: #4c645b;">
+          {{ form.password2.label_tag }}
+          <input type="password" class="form-control {% if form.password2.errors %}is-invalid{% endif %}"
+            id="id_password2" name="password2" value='{{ form.password2.value|default:"" }}' style="text-transform: lowercase; width: 350px; height: 40px;">
+          <small class="text-muted">{{ form.password2.help_text }}</small>
+          {% if form.password2.errors %}
+          <div class="invalid-feedback">{{ form.password2.errors }}</div>
+          {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary" color: #4c645b;>Sign up</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-md-4" >
+  <div class="content-section" style="padding-top: 25rem; ">
+      <div class="image" >
+        <img src='{% static "/media/images/signup.svg"%}' alt="" style="height: 350px; width:100%; padding-right: 15rem;">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}

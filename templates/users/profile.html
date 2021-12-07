@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}{{ user.username }} | TourGuide{% endblock head_title %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    <div class="card col-lg-6 offset-lg-3 mb-3">
+
+      <div class="row">
+        {% if user.profile.image %}
+        <img class="card-img-top col-sm-3 col-4 my-3" src="{{ profile.image.url }}" alt="{{ user.username }}">
+        {% else %}
+        <img class="card-img-top col-sm-3 col-4 my-3" src="{% static 'img/avatar.svg' %}" alt="{{ user.username }}">
+        {% endif %}
+        <b><div class="card-body col-9">
+          <h1 class="card-title my-3">{{ user.username }}</h1>
+          <p>Last login on: {{ user.last_login }}</p>
+          <p class="card-text">{{ user.profile.about_me }}</p>
+          {% if request.user.is_authenticated %}
+          <p><a href="{% url 'users:edit_profile' %}"><b style="color: #4c645b; font-size: medium;">Edit your profile</b></a></p>
+          {% endif %}
+        </div></b>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+  <span>Y</span>
+  <span>o</span>
+  <span>u</span>
+  <span class="space"></span>
+  <span>H</span>
+  <span>a</span>
+  <span>v</span>
+  <span>e</span>
+  <span class="space"></span>
+  <span>V</span>
+  <span>i</span>
+  <span>s</span>
+  <span>t</span>
+  <span>e</span>
+  <span>d</span>
+</h1>
+<div class="container">
+{%  for destination in destinations %}
+{% for i in destination %}
+<div class="col-xs-3 col-sm-3 cols-md-3" style="padding-top: 5rem;">
+  <div class="card align-items-center" style="width: 18rem;">
+    <img src="/media/{{i.image}}"  class="card-img-top" alt="..." >
+    <div class="cards-bodys">
+                      <h5 class="card-title" id="namepr{{i.id}}"> {{i.Destination_name}}</h5>
+                      <h5 class="card-price" style="color: black;">BDT <span  id="pricepr{{i.id}}" >{{i.price}}</span></h5>
+                       <p class="card-text">{{i.desc|slice:"0:20"}}....</p>
+
+                    
+                    <a href="#"><button id="qv{{i.id}}" class="btn btn-info">Details</button></a>
+                    
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+{% endfor %}
+</div>
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box" style="padding-right: 5rem;">
+          <h3>about us</h3>
+          <p>Travel is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy. Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh.</p>
+      </div>
+      
+      <div class="box" style="padding-left:5rem;">
+          <h3>We’ve got you covered</h3>
+       
+          <a href="/">home</a>
+          <a href="/tourindex">book</a>
+          <a href="/">services</a>
+          <a href="#">review</a>
+          <a href="/contact">contact</a>
+      </div>
+      <div class="box" style="padding-left:8rem;">
+          <h3>follow us</h3>
+          <a href="https://www.facebook.com/mdfahimur.rosid">facebook</a>
+          <a href="https://www.instagram.com/akib_alvee/">instagram</a>
+          <a href="https://github.com/fahim-01">github</a>
+          <a href="https://www.linkedin.com/in/akib-alvee-2a947b185/">linkedin</a>
+
+      </div>
+      <div class="container">
+      <div class="footer-copyright text-center py-3" style="font-size: large; color: #fff;">© Developed by:
+        <a style="color: #fff;" href="https://www.facebook.com/mdfahimur.rosid/"> Fahimur Rashid </a>&
+        <a style="color: #fff;" href="https://www.facebook.com/akib.alvee"> Akib Alvee</a>
+      </div>
+    </div>
+</section> 
+
+
+{% endblock %}

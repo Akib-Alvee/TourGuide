@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tour and Travel agency </title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- custom css file link  -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="{% static 'css/booking.css' %}" /> 
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/service.css' %}" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js"  crossorigin="anonymous"></script>
+
+
+
+
+
+
+    
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"><span>T</span>ravel</a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="/booking">book</a>
+        <a href="#packages">packages</a>
+        <a href="#services">services</a>
+        <a href="#gallery">gallery</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+    </div>
+
+    <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="search here...">
+        <label for="search-bar" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+<div class="container"> 
+    <!--Slideshow starts here -->
+     {% for destination, range, nSlides in allProds %}
+ <h2 class="my-4">{{destination.0.category}}</h2>
+ <div class="row">
+     <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+         <ul class="carousel-indicators" style="margin-bottom: 0rem;">
+             <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+             {% for i in range %}
+             <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+             {% endfor %}
+         </ul> 
+      
+     <div class="container carousel-inner no-padding">
+
+     <div class="carousel-item active">
+
+       {% for i in destination %}
+       <div class="col-xs-3 col-sm-3 col-md-3">
+         <div class="card align-items-center" style="width: 18rem;">
+           <img src="/media/{{i.image}}"  class="card-img-top" alt="..." >
+           <div class="card-body-">
+                             <h5 class="card-title" id="namepr{{i.id}}">{{i.Destination_name}}</h5>
+                             <h5 class="card-price" style="color: black;">BDT <span  id="pricepr{{i.id}}" >{{i.price}}</span></h5>
+                              <p class="card-text">{{i.desc|slice:"0:20"}}....</p>
+
+                           
+                           <a href="/destinations/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-info" style="color: rgb(77, 2, 12);">Details</button></a>
+                         
+                         </div>
+                     </div>
+                 </div>
+                 {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+             </div>
+             <div class="carousel-item">
+                 {% endif %}
+                 {% endfor %}
+             </div>
+         </div>
+     </div>
+     <!-- left and right controls for the slide -->
+         <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+         <span class="carousel-control-prev-icon"></span>
+     </a>
+     <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+         <span class="carousel-control-next-icon"></span>
+     </a>
+ </div>
+ {% endfor %}
+</div>
+
+
+
+
+
+<section class="book" id="book">
+
+    <h1 class="heading">
+        <span>b</span>
+        <span>o</span>
+        <span>o</span>
+        <span>k</span>
+        <span class="space"></span>
+        <span>n</span>
+        <span>o</span>
+        <span>w</span>
+    </h1>
+
+    <div class="row">
+
+        <div class="image">
+           
+            <img src='{% static "/media/images/book-img.svg"%}' alt="">
+        </div>
+
+        <form action="">
+            <div class="inputBox">
+                <h3>where to</h3>
+                <input type="text" placeholder="place name">
+            </div>
+            <div class="inputBox">
+                <h3>how many</h3>
+                <input type="number" placeholder="number of guests">
+            </div>
+            <div class="inputBox">
+                <h3>arrivals</h3>
+                <input type="date">
+            </div>
+            <div class="inputBox">
+                <h3>leaving</h3>
+                <input type="date">
+            </div>
+            <input type="submit" class="btn" value="book now">
+        </form>
+
+    </div>
+
+</section>
+
+<!-- login form container  -->
+
+<div class="login-form-container">
+
+    <i class="fas fa-times" id="form-close"></i>
+
+    <form action="">
+        <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email">
+        <input type="password" class="box" placeholder="enter your password">
+        <input type="submit" value="login now" class="btn">
+        <input type="checkbox" id="remember">
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="#">register now</a></p>
+    </form>
+
+</div>
+
+<!-- home section starts  -->
+
+
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est accusantium voluptas enim nemo facilis sit debitis.</p>
+        </div>
+        
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">book</a>
+            <a href="#">packages</a>
+            <a href="#">services</a>
+            <a href="#">gallery</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    
+</section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<!-- <script src="js/script.js"></script> -->
+<script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'Tour/basetour.html' %}
+{% block title %} Booking US {% endblock %} 
+{% block body %} 
+    <div class="container my-4">
+        <div class="row-md-8">
+            <h5 style="font-size: 30px; color: darkblue; text-align:center;"><b>{{placeview.Destination_name}}</b></h5>
+        </div>
+        <div class="row">
+        <div class="col-md-4">
+        <div class="row">
+            <img src="/media/{{placeview.image}}" width="960Px" height="600px">
+        </div>
+        <div class="row">
+            
+            <a href="/destinations/{{placeview.Destination_name}}"><button type="button" class="btn btn-success my-2">Booking Us</button></a>
+                
+            
+        </div>
+            
+    
+        </div>
+       
+       
+    
+        <div class="row-md-8">
+           
+            <p style="font-size:40px; color:blue; text-align:center;"><b>History</b></p>
+            <p>{{placeview.desc}}</p>
+            <p style="font-size:40px; color:green" mx-4><b>BDT.{{placeview.price}}<b>৳</b> </b></p>
+    
+    
+        </div>
+        </div>
+        
+    
+    </div>
+    {% endblock %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      
+<div class="site-wrapper clearfix">
+    <!-- Day life Block -->
+    <div class="daily-life-block clearfix">
+        <div class="daily-life-content">
+            <h2>We’ve got you covered</h2>
+            <h5>Live easy, Live stress-free</h5>
+        </div>
+        <div class="daily-life">
+            <ul>
+                <li class="mve2">
+                    <h5>Back To Home</h5>
+                    <div class="icon-round">
+                        <img src='{% static "/media/images/ride.svg" %}' alt="">
+                    </div>
+                    Emergency Ride               
+                </li>
+                
+                <li class="active">
+                    <h5>Morning</h5>
+                    <div class="icon-round">
+                        <img src='{% static "/media/images/foods.svg" %}' alt="">
+                    </div>
+                    Easy Food                    </li>
+
+                <li>
+                    <h5> Go To Work</h5>
+                    <div class="icon-round">
+                        <img src='{% static "/media/images/ride2.svg" %}' alt="">
+                    </div>
+                   Easy Ride                    </li>
+
+                <li class="mve1">
+                    <h5>Medical service</h5>
+                    <div class="icon-round">
+                        <img src='{% static "/media/images/foods.svg" %}' alt="">
+                    </div>
+                    Daily Food                    </li>
+
+             
+
+                <li>
+                    <h5>Weekend Fun</h5>
+                    <div class="icon-round">
+                        <img src="https://www.shohoz.com/v2/assets/img/icon/shohoz-movie.svg" alt="">
+                    </div>
+                    Amusement                  </li>
+
+                <li>
+                    <h5>Out of City Travel</h5>
+                    <div class="icon-round">
+                        <img src="https://www.shohoz.com/v2/assets/img/icon/shohoz-bus.svg" alt="">
+                    </div>
+                    Emergency Ticket             
+                      </li>
+                      
+                   
+                </div>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Travel Agency </title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/service.css' %}" />
+    <!-- <script src="https://kit.fontawesome.com/64d58efce2.js"  crossorigin="anonymous"></script> -->
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"><span>T</span>ravel</a>
+
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="#packages">packages</a>
+        <a href="#services">services</a>
+        <a href="/contact">contact</a>
+        {% if request.user.is_authenticated %}
+        <a href="/tourindex">book</a>
+        <a href="{% url 'blog:home'%}">Review</a> 
+       <a href="{% url 'users:profile' request.user.username %}"
+       class="nav-item nav-link {% if request.user.username in request.path %}active{% endif %}">
+       Profile
+    </a>
+    <a href="{% url 'users:logout' %}">Log out</a>
+        {% else %}
+        <a href="users/login">Log in</a>
+        <a href="users/signup">Sign up</a>
+        {% endif %}
+      
+          
+    </nav>
+    <div class="icons">
+        <!-- <i class="fas fa-user" id="login-btn"></i> -->
+      
+    </div>
+
+   
+
+</header>
+
+<!-- header section ends -->
+
+<!-- login form container  -->
+
+<div class="login-form-container">
+
+    <i class="fas fa-times" id="form-close"></i>
+
+    <form action="">
+        
+         <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email">
+        <input type="password" class="box" placeholder="enter your password">
+        <input type="submit" value="login now" class="btn">
+        <input type="checkbox" id="remember">
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="users/signup">register now</a></p>
+     </form> 
+
+</div>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>adventure is worthwhile</h3>
+        <p>dicover new places with us, adventure awaits</p>
+        <a href="#" class="btn">discover more</a>
+    </div>
+
+    <div class="controls">
+        <span class="vid-btn active" data-src="images/vid-1.mp4"></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-5.mp4"%}'></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-3.mp4"%}'></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-4.mp4"%}'></span>
+        <span class="vid-btn" data-src='{% static "/media/images/vid-1.mp4"%}'></span>
+    </div>
+
+    <div class="video-container">
+      
+        <video src= '{% static "/media/images/vid-2.mp4"%}' id="video-slider" loop autoplay muted></video>
+    </div>
+
+</section>
+
+
+<!-- home section ends -->
+
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+    <h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <span>p</span>
+        <span>a</span>
+        <span>c</span>
+        <span>k</span>
+        <span>a</span>
+        <span>g</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+
+    
+
+<div class="box-container">
+
+    <div class="box">
+        <img src='{% static "/media/images/p-1.jpg"%}' alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Short Trip </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            {% if request.user.is_authenticated %}
+            <a href="/tourindex" class="btn">book now</a>
+            {% else %}
+            <a href="users/login" class="btn">book now</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="box">
+        <img src='{% static "/media/images/p-2.jpg"%}' alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> Long Trip </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+               {% if request.user.is_authenticated %}
+            <a href="/tourindex" class="btn">book now</a>
+            {% else %}
+            <a href="users/login" class="btn">book now</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="box">
+        <img src='{% static "/media/images/p-3.jpg"%}' alt="">
+        <div class="content">
+            <h3> <i class="fas fa-map-marker-alt"></i> sydney </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="price"> $90.00 <span>$120.00</span> </div>
+            {% if request.user.is_authenticated %}
+            <a href="/tourindex" class="btn">book now</a>
+            {% else %}
+            <a href="users/login" class="btn">book now</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+</section> 
+
+<!-- packages section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- services section starts  -->
+
+ <section class="services" id="services">
+
+    <h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <span>s</span>
+        <span>e</span>
+        <span>r</span>
+        <span>v</span>
+        <span>i</span>
+        <span>c</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-hotel"></i>
+            <h3>affordable hotels</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-utensils"></i>
+            <h3>food and drinks</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-bullhorn"></i>
+            <h3>safty guide</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-globe-asia"></i>
+            <h3>around the world</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-plane"></i>
+            <h3>fastest travel</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-hiking"></i>
+            <h3>adventures</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+
+    </div>
+
+</section> 
+
+<!-- services section ends -->
+
+<!-- gallery section starts  -->
+
+ <section class="gallery" id="gallery" >
+
+    <h1 class="heading" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <span>g</span>
+        <span>a</span>
+        <span>l</span>
+        <span>l</span>
+        <span>e</span>
+        <span>r</span>
+        <span>y</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src='{% static "/media/images/g-1.jpg"%}' alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-2.jpg"%}'  alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-3.jpg"%}'    alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-4.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-5.jpg"%}'  alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-6.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-7.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src='{% static "/media/images/g-8.jpg"%}'   alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#packages" class="btn">see more</a>
+            </div>
+        </div>
+        
+
+    </div>
+
+</section> 
+
+<!-- gallery section ends -->
+
+
+
+
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est accusantium voluptas enim nemo facilis sit debitis.</p>
+        </div>
+        
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">book</a>
+            <a href="#">packages</a>
+            <a href="#">services</a>
+            <a href="#">gallery</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    
+</section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<!-- <script src="js/script.js"></script> -->
+<script src="{% static 'js/home.js' %}"></script>
+
+</body>
+</html>
+
+

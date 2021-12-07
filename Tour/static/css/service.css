@@ -1,0 +1,113 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Bw Helder", Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #333333;
+}
+
+
+
+
+
+.site-wrapper {
+    max-width: 1150px;
+    margin: auto;
+  }
+  
+  .clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+  
+  
+  
+  .svg-icon {
+    display: inline-block;
+  }
+  
+  .svg-icon:after {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  
+  
+  h2,
+  
+  
+  h5 {
+    font-family: "Bw Helder", Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.5em;
+  }
+  
+  
+  
+  h2 {
+    font-size: 38px;
+  }
+  
+  
+  h5 {
+    font-size: 22px;
+  }
+  
+  
+  
+  
+  
+  .daily-life-block {
+    text-align: center;
+    padding-top: 70px;
+  }
+  
+  .daily-life-block ul {
+    background: url(../media/images/path.png) no-repeat center center;
+    background-size: 100%;
+  }
+  
+  .daily-life-block ul li {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    padding: 40px 0;
+    color: #4c645b;
+    font-size: 12px;
+  }
+  
+  .daily-life-block ul li.active .icon-round {
+    color: #fff;
+  }
+  
+  .daily-life-block ul li h5 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #4c645b;
+    font-size: 18px;
+  }
+  
+  .daily-life-content {
+    margin-top: 60px;
+  }
+  
+  .daily-life-content h5 {
+    color: #333333;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+  
+  .daily-life-block ul li.mve1 {
+    padding-right: 40px;
+  }
+  
+  .daily-life-block ul li.mve2 {
+    padding-left: 88px;
+  }
+  
+  
