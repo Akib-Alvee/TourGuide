@@ -66,7 +66,7 @@ ROOT_URLCONF = 'TourGuide.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [r'G:\django\TourGuide\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
