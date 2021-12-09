@@ -9,4 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include(('blog.urls','blog'),namespace = 'blog')),
     path('users/',include(('users.urls','users'),namespace = 'users')),
+    path('reserve/',include(('flight.urls','flight'),namespace = 'flight')),
+    
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

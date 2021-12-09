@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from datetime import datetime
+
 # Create your models here.
 
 class Place(models.Model):

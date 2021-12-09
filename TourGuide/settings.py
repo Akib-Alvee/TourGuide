@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'users',
     'blog',
     'Tour',
+    'flight',
 ]
 
 AUTH_USER_MODEL = 'users.User'
