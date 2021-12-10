@@ -407,7 +407,7 @@
                             <div class="base-fae-label">Base Fare: </div>
                             <div class="base-fare-value">
                                 {% if seat == 'First' %}
-                                    ₹ <span>
+                                    ৳ <span>
                                         {% if flight2 %}
                                             {{flight1.first_fare | add:flight2.first_fare}}
                                         {% else %}
@@ -416,7 +416,7 @@
                                         </span>
                                     <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.first_fare | add:flight2.first_fare}}{% else %}{{flight1.first_fare}}{% endif %}">
                                 {% elif seat == 'Business' %}
-                                    ₹ <span>
+                                    ৳ <span>
                                         {% if flight2 %}
                                             {{flight1.business_fare | add:flight2.business_fare}}
                                         {% else %}
@@ -425,7 +425,7 @@
                                         </span>
                                     <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.business_fare | add:flight2.business_fare}}{% else %}{{flight1.business_fare}}{% endif %}">
                                 {% elif seat == 'Economy' %}
-                                    ₹ <span>
+                                    ৳ <span>
                                         {% if flight2 %}
                                             {{flight1.economy_fare | add:flight2.economy_fare}}
                                         {% else %}
@@ -438,7 +438,7 @@
                         </div>
                         <div class="row surcharges">
                             <div class="surcharges-label">Fee & Surcharges: </div>
-                            <div class="surcharges-value">₹ <span>{{fee}}</span></div>
+                            <div class="surcharges-value">৳ <span>{{fee}}</span></div>
                             <input type="hidden" id="fee" value="{{fee}}">
                         </div>
                         <hr>
@@ -446,7 +446,7 @@
                             <div class="total-fare-label">Total Fare: </div>
                             <div class="total-fare-value">
                                 {% if seat == 'First' %}
-                                    ₹ <span>
+                                    ৳ <span>
                                         {% if flight2 %}
                                             {{flight1.first_fare | add:flight2.first_fare | add:fee}}
                                         {% else %}
@@ -454,7 +454,7 @@
                                         {% endif %}
                                     </span>
                                 {% elif seat == 'Business' %}
-                                    ₹ <span>
+                                    ৳ <span>
                                         {% if flight2 %}
                                             {{flight1.business_fare | add:flight2.business_fare | add:fee}}
                                         {% else %}
@@ -462,7 +462,7 @@
                                         {% endif %}
                                     </span>
                                 {% elif seat == 'Economy' %}
-                                    ₹ <span>
+                                    ৳ <span>
                                         {% if flight2 %}
                                             {{flight1.economy_fare | add:flight2.economy_fare | add:fee}}
                                         {% else %}
