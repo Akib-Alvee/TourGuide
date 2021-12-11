@@ -28,13 +28,13 @@
 
 .query-data-div{
     min-height: 11vh;
-    background-color: crimson;
-    background-image: linear-gradient(135deg, crimson, #b8017b);
+    background-color: #4c645b;
+    /* background-image: linear-gradient(135deg, crimson, #b8017b); */
     display: flex;
 }
 .query-data-div2{
     background-color: crimson;
-    background-image: linear-gradient(135deg, crimson, #b8017b);
+    /* background-image: linear-gradient(135deg, crimson, #b8017b); */
     display: none;
 }
 .query-data-div2 > .container{
