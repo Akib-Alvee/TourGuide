@@ -10,10 +10,10 @@
 {% endblock %}
 
 {% block body %}
-    <section class="section section1">
-        <div class="query-data-div">
-            <div class="container">
-                <div class="trip-places">
+    <section class="section section1" >
+        <div class="query-data-div" >
+            <div class="container" >
+                <div class="trip-places" >
                     <div class="from-div text-align-left">
                         <div class="small-label">From</div>
                         <div class="white">{{origin.city}} ({{origin.code}})</div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="v-line"></div>
                 <div class="trip-modify">
-                    <form action="/" method="POST">
+                    <form action="{% url 'flight:index' %}" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="Origin" value="{{origin.code|upper}}">
                         <input type="hidden" name="Destination" value="{{destination.code|upper}}">
@@ -68,12 +68,12 @@
                         <input type="hidden" name="ReturnDate" value='{{return_date|date:"Y-m-d"}}'>
                         <input type="hidden" name="SeatClass" value="{{seat|lower}}">
                         <input type="hidden" name="TripType" id="trip-identifier" value="{{trip_type}}">
-                        <button class="btn spl-btn" type="submit">Modify Search</button>
+                        <button class="btn " style=" background-color: #4c645b;" type="submit">Modify Search</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="query-data-div2">
+        <div class="query-data-div2" style="color: #4c645b;">
             <div class="container">
                 <div class="trip-modify">
                     <form action="/" method="POST">
@@ -170,9 +170,9 @@
                                     </svg>
                                 </button>
                             </div>
-                            <div class="filter">
+                            <div class="filter" >
                                 <center>
-                                    <h4>Filter Results</h4>
+                                    <h4 style="color: #4c645b;">Filter Results</h4>
                                 </center>
                                 <div class="filter-box">
                                     <div class="filter-price">
@@ -408,7 +408,7 @@
                                                             <input type="hidden" name="flight1Id" value="{{flight.id}}">
                                                             <input type="hidden" name="flight1Date", value="{{depart_date|date:'d-m-Y'}}">
                                                             <input type="hidden" name="seatClass" value="{{seat}}">
-                                                            <button class="btn btn-primary btn-danger o-b" type="submit">
+                                                            <button class="btn " style="background-color: #4c645b; color: #fff;" type="submit">
                                                             
                                                                 Book Flight &#8594;
                                                             </button>

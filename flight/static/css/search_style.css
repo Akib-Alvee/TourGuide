@@ -29,12 +29,12 @@
 .query-data-div{
     min-height: 11vh;
     background-color: #4c645b;
-    /* background-image: linear-gradient(135deg, crimson, #b8017b); */
+    background-image: linear-gradient(135deg, #4c645b, #a8c0b7);
     display: flex;
 }
 .query-data-div2{
-    background-color: crimson;
-    /* background-image: linear-gradient(135deg, crimson, #b8017b); */
+    background-color: #4c645b;
+    background-image: linear-gradient(135deg, #4c645b, #a8c0b7);
     display: none;
 }
 .query-data-div2 > .container{
@@ -95,8 +95,8 @@
     padding-left: 12px;
     padding-right: 12px;
 }
-/* .trip-modify button{
-} */
+.trip-modify button{
+}
 .spl-btn{
     transition-duration: .2s;
     color: white;
@@ -122,7 +122,7 @@
 }*/
 .trip-modify button:hover, button:active{
     background-color: rgb(255, 235, 245);
-    color: rgb(189, 4, 116);
+    color: #4c645b;;
 }
 .trip-modify button:focus{
     box-shadow: 0 0 0 0.2rem rgba(255,255,255,.3);
@@ -198,7 +198,7 @@
     background: none;
     border: none;
     outline: none;
-    color: blue;
+    color: #4c645b;;
 }
 .btn-link:hover, .btn-link:focus, .btn-link:active{
     text-decoration: none;
@@ -386,7 +386,7 @@
 .selection-div{
     position: fixed;
     z-index: 99;
-    background-image: linear-gradient(135deg, rgba(220, 20, 60, .85), rgba(184,1,123,.85));
+    background-image: linear-gradient(135deg,#4c645b, #a8c0b7);
     height: 10%;
     width: 100%;
     bottom: 0;
@@ -424,14 +424,14 @@
     padding: 5px 10px;
     border-radius: 15px 0 0 15px;
     cursor: pointer;
-    border: .5px dotted rgb(220, 45, 60);
+    border: .5px dotted #4c645b;
     transition-duration: .4s;
 }
 #flight2-btn-div{
     padding: 5px 10px;
     border-radius: 0 15px 15px 0;
     cursor: pointer;
-    border: .5px dotted rgb(220, 45, 60);
+    border: .5px dotted #4c645b;
     transition-duration: .4s;
 }
 /*.active-div{
@@ -486,8 +486,8 @@
     transition-duration:0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
-    background: #b80190;
-    background: linear-gradient(45deg, crimson 0%, #b80190 100%);
+    background: #4c645b;
+    background: linear-gradient(45deg, #4c645b 0%, #a8c0b7 100%);
     /*background: #05abe0;*/
     /*background: linear-gradient(45deg, #05abe0 0%,#8200f4 100%);*/
     

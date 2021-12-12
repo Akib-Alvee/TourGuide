@@ -1,6 +1,6 @@
 .form-control:focus{
     box-shadow: 0 0 0 0.03rem rgba(220,53,69,.25);
-    border-color: rgb(220,53,69);
+    border-color: #4c645b;
 }
 .btn, .btn:focus, .btn:active{
     box-shadow: none !important;

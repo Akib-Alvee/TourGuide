@@ -6,6 +6,7 @@ body{
     font-style: normal;
     min-width: 250px;
 }
+
 .container-fluid{
     padding-left: 0px;
     padding-right: 0px;
@@ -19,9 +20,20 @@ body{
     transition-duration: .2s;
 }
 .nav-link:hover{
-    color: #e12323!important;
+    color: #4c645b!important;
     transition-duration: .2s;
 }
+
+ .navbar a{
+    color:#fff;
+    font-size: 2rem;
+    margin:0 .8rem;
+  }
+  
+  .navbar a:hover{
+    color:var(--orange);
+  }
+  
 .my-account .dropdown-header{
     align-content: flex-start;
 }
@@ -56,6 +68,65 @@ body{
     font-family: utopia-std, serif;
 }
 
+.packages .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+  }
+  
+  .packages .box-container .box{
+    flex:1 1 30rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+  }
+  
+  .packages .box-container .box img{
+    height: 25rem;
+    width:100%;
+    object-fit: cover;
+  }
+  
+  .packages .box-container .box .content{
+    padding:2rem;
+  }
+  
+  .packages .box-container .box .content h3{
+    font-size:3.5rem;
+    color:#333;
+  }
+  
+  .packages .box-container .box .content h3 i{
+    color:var(--orange);
+  }
+  
+  .packages .box-container .box .content p{
+    font-size:1.7rem;
+    color:#666;
+    padding:1rem 0;
+  }
+  
+  .packages .box-container .box .content .stars i{
+    font-size:1.7rem;
+    color:var(--orange);
+  }
+  
+  .packages .box-container .box .content .price{
+    font-size: 2rem;
+    color:#333;
+    padding-top: 1rem;
+  }
+  
+  .packages .box-container .box .content .price span{
+    color:#666;
+    font-size: 1.5rem;
+    text-decoration: line-through;
+  }
+  
+
+
+
+
 @media (max-width: 992px){
     .first-section{
         display: block;
@@ -69,6 +140,7 @@ body{
         width: 80%!important;
         margin-left: auto;
         margin-right: auto;
+        height: 50% !important;
     }
 }
 @media (max-width: 768px){
@@ -214,7 +286,7 @@ body{
     text-decoration: none;
 }
 .single_destination:hover content a{
-    background-color: red;
+    background-color: #4c645b;
 }
 
 footer{

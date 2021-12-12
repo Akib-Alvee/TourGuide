@@ -72,9 +72,9 @@
                                     <!--<button class="btn btn-outline-primary btnp">Print Ticket</button>-->
                                     <form action="{% url 'flight:getticket' %}" method="get" target="_blank">
                                         <input type="hidden" name="ref" value="{{ticket.ref_no}}">
-                                        <button type="submit" class="btn btn-outline-primary btnp">Print Ticket</button>
+                                        <button type="submit" class="btn btn-outline-primary btnp" >Print Ticket</button>
                                     </form>
-                                    <button class="btn btn-outline-primary btnp"  data-ref="{{ticket.ref_no}}" onclick="popup(this)">Cancel Ticket</button>
+                                    <button class="btn btn-outline-primary btnp" data-ref="{{ticket.ref_no}}" onclick="popup(this)">Cancel Ticket</button>
                                 {% endif %}
                                 {% if ticket.status == 'PENDING' %}
                                     <form action="{% url 'flight:resumebooking' %}" method="POST">
@@ -103,7 +103,7 @@
         <div class="small-popup">
             <div style="margin-bottom: 10px; font-size: 1.1em;"><strong>Do you really want to cancel this ticket?</strong></div>
             <div class="popup-actions">
-                <button class="btn btn-light" onclick="remove_popup()">Go Back</button>
+                <button class="btn btn-light"  onclick="remove_popup()">Go Back</button>
                 <button class="btn btn-danger" id="cancel_ticket_btn" data-ref="" onclick="cancel_tkt()">Cancel</button>
             </div>
         </div>

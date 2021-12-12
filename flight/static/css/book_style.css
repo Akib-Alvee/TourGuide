@@ -13,9 +13,10 @@
 }
 
 h5{
-    background: -webkit-linear-gradient(right, crimson, #b8017b);
+    background: -webkit-linear-gradient(right, #4c645b, #a8c0b7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: #4c645b;
 }
 
 .ticket-details, .traveller-details, .seat-map, .price-details, .coupon-code{
@@ -102,12 +103,12 @@ h5{
     padding-top: 13px;
 }
 .add-traveller-btn{
-    color: blue;
+    color: #4c645b;;
     padding: 0;
     font-size: .9em;
 }
 .add-traveller-btn:hover{
-    color: blue;
+    color: #4c645b;
 }
 .add-traveller-btn:focus, .add-traveller-btn:active{
     box-shadow: none;
@@ -122,7 +123,7 @@ h5{
     box-shadow: none;
 }
 .delete-traveller button:hover{
-    color: red;
+    color: #4c645b;
 }
 
 .contact-details-div{

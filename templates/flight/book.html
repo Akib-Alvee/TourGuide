@@ -22,7 +22,7 @@
             <div class="row main-row">
                 <div class="col-8">
                 <div class="ticket-details">
-                    <h5>Ticket Details</h5>
+                    <h5 style="color:#4c645b;">Ticket Details</h5>
                     <hr>
                     <div class="media-airline">
                         <div>
@@ -115,7 +115,7 @@
                             <div class="col-3 ci">
                                 Country Code
                                 <select name="countryCode" class="custom-select">
-                                    <option data-countryCode="IN" value="91">India (+91)</option>
+                                    <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
                                     <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                                     <option data-countryCode="AD" value="376">Andorra (+376)</option>
                                     <option data-countryCode="AO" value="244">Angola (+244)</option>
@@ -201,6 +201,7 @@
                                     <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
                                     <option data-countryCode="HU" value="36">Hungary (+36)</option>
                                     <option data-countryCode="IS" value="354">Iceland (+354)</option>
+                                    <option data-countryCode="IN" value="91">India (+91)</option>
                                     <!-- <option data-countryCode="IN" value="91">India (+91)</option> -->
                                     <option data-countryCode="ID" value="62">Indonesia (+62)</option>
                                     <option data-countryCode="IR" value="98">Iran (+98)</option>
@@ -388,7 +389,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary btn-light" style="margin-right: auto;" onclick="add_traveller()">Add</button>
+                        <button type="button" class="btn" style="margin-right: auto; background-color: #4c645b; color: aliceblue;" onclick="add_traveller()">Add</button>
                     </div>
                     <hr>
                     <div class="add-traveller">
@@ -396,7 +397,7 @@
                     </div>
                 </div>
                 <div class="payment-btn" style="background-color: transparent;">
-                    <button type="submit" class="btn btn-primary btn-danger">Proceed to payment</button>
+                    <button type="submit" class="btn btn-primary btn-danger" style="background-color:#4c645b; border-color: #4c645b;">Proceed to payment</button>
                 </div>
                 </div>
                 <div class="col-4">
@@ -480,17 +481,17 @@
                             <div class="col-9" style="padding: 10px 10px 10px 0px">
                                 <input type="text" name="coupon" class="form-control" placeholder="Coupon Code" style="text-transform: uppercase;">
                             </div>
-                            <div class="col coupon-apply" style="padding: 10px 10px 10px 0px">
-                                <center>
-                                    <button type="button" class="btn btn-primary btn-danger">Apply</button>
-                                </center>
+                            <div class="col coupon-apply" style="padding: 10px 10px 10px 0px " >
+                                
+                                    <button type="button" style="background-color: #4c645b; color: aliceblue;" class="btn ">Apply</button>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col media-payment-btn">
-                    <div>
-                        <button type="submit" class="btn btn-primary btn-danger">Proceed to payment</button>
+                <div class="col media-payment-btn" style="color: #4c645b;">
+                    <div >
+                        <button type="submit" class="btn" style="background-color:#4c645b;">Proceed to payment</button>
                     </div>
                 </div>
             </div>
