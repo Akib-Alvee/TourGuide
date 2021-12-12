@@ -62,6 +62,11 @@ For a beautiful tour a person/organization faces a lot of trouble.To make his tr
 <li>Database: PostgreSQL</li>
 </ul>
 
+## Clone this Project:
+Clone this project :
+```
+git clone https://github.com/Akib-Alvee/TourGuide.git
+```
 
 ## Run the Project in your Machine
 
@@ -137,5 +142,5 @@ Tour Management App <b>[ [watch now](https://www.youtube.com/watch?v=eVGEea7adDM
 
 
 ## Authors
-- <b>[Akib Alvee](https://github.com/Akib-Alvee)</b>
-- <b>[Fahimur Rashid](https://github.com/fahim-01)</b>
+- <b>[Akib Alvee (2017331049)](https://github.com/Akib-Alvee)</b>
+- <b>[Fahimur Rashid (2017331001)](https://github.com/fahim-01)</b>
