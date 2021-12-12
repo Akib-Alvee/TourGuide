@@ -63,7 +63,6 @@ For a beautiful tour a person/organization faces a lot of trouble.To make his tr
 </ul>
 
 ## Clone this Project:
-Clone this project :
 ```
 git clone https://github.com/Akib-Alvee/TourGuide.git
 ```
