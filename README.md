@@ -141,5 +141,6 @@ Tour Management App <b>[ [watch now](https://www.youtube.com/watch?v=eVGEea7adDM
 
 
 ## Authors
-- <b>[Akib Alvee (2017331049)](https://github.com/Akib-Alvee)</b>
 - <b>[Fahimur Rashid (2017331001)](https://github.com/fahim-01)</b>
+- <b>[Akib Alvee (2017331049)](https://github.com/Akib-Alvee)</b>
+
