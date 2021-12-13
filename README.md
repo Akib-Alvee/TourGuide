@@ -18,6 +18,9 @@ For a beautiful tour a person/organization faces a lot of trouble.To make his tr
 <li>Manage Travel Expenses</li>
 </ul>
 
+# Youtube Link of how our app works:
+Tour Management App <b>[ [watch now](https://youtu.be/0uX4cQpkpTg) ] </b>
+
 ## Features Implemented
 <ul>
 <li>A Beautiful Responsive UI for Users</li>
@@ -91,14 +94,6 @@ python manage.py runserver
 ```
 
 
-
-
-# Youtube Link of how our app works:
-Tour Management App <b>[ [watch now](https://youtu.be/0uX4cQpkpTg) ] </b>
-
-
-
-<!-- ### To know detail, go to [readme.txt](https://github.com/SaiferGit/Android-P2P-Messenger/blob/master/readme.txt) -->
 
 # Some Snapshots:
 
