@@ -94,7 +94,7 @@ python manage.py runserver
 
 
 # Youtube Link of how our app works:
-Tour Management App <b>[ [watch now](https://www.youtube.com/watch?v=eVGEea7adDM) ] </b>
+Tour Management App <b>[ [watch now](https://youtu.be/0uX4cQpkpTg) ] </b>
 
 
 
